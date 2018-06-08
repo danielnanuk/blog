@@ -138,10 +138,10 @@ Java中的Integer为32位, 其中要表示正数, 负数以及0, 第32位为符�
 ### 无符号右移
 ```java
     int a = -10;
-    System.out.println(toBinaryString.apply(a));
+    System.out.println(toBinaryString.apply(a)); // 11111111111111111111111111110110
     int b = a >>> 1;
-    System.out.println(toBinaryString.apply(b));
-    System.out.println(b);
+    System.out.println(toBinaryString.apply(b)); // 01111111111111111111111111111011
+    System.out.println(b); // 2147483643
 ```
 不管最高位符号位向右移动, 高位补0.
 
