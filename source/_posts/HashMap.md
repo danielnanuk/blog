@@ -130,7 +130,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 final void treeifyBin(Node<K,V>[] tab, int hash) {
   int n, index; Node<K,V> e; 
    //如果当前哈希表为空, 或者哈希表中元素的个数小于 进行树形化的阈值(默认为 64), 就去新建/扩容 
-  if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY) 
+  if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)  
        resize(); 
    else if ((e = tab[index = (n - 1) & hash]) != null) {
        //如果哈希表中的元素个数超过了 树形化阈值, 进行树形化 
@@ -152,7 +152,7 @@ final void treeifyBin(Node<K,V>[] tab, int hash) {
             hd.treeify(tab); 
     } 
  } 
-    TreeNode<K,V> replacementTreeNode(Node<K,V> p, Node<K,V> next) {
+ TreeNode<K,V> replacementTreeNode(Node<K,V> p, Node<K,V> next) {
     return new TreeNode<>(p.hash, p.key, p.value, next); 
  }
 ```
@@ -253,8 +253,7 @@ final Node<K,V>[] resize() {
  + 加载因子大于1会怎么样?
     + 加载因子大于loadFactor会导致threshold过大, 从而每个哈希桶装的元素过多, 查询和添加效率低下
  + 什么时候哈希桶使用链表, 什么时候使用红黑树?
-    + 当某个哈希桶中的元素数量大于TREEIFY_THRESHOLD(8), 且总元素数量大于MIN_TREEIFY_CAPACITY(64), 此时会使用红黑树来替换掉对应的Node,
-     可以提高查询效率
+    + 当某个哈希桶中的元素数量大于TREEIFY_THRESHOLD(8), 且总元素数量大于MIN_TREEIFY_CAPACITY(64), 此时会使用红黑树来替换掉对应的Node,可以提高查询效率
  + 如何找到对应的哈希桶
     + 使用位运算来获取对应的index, index = (n - 1) & hash, 其中n等于哈希桶的数量
  + 为什么threshold一定要是2的n次方
