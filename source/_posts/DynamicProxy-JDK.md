@@ -9,7 +9,7 @@ tags:
 先来看看什么是静态代理:
 
 ## 静态代理
-
+代码如下:
 ```java
 package ren.eggpain;
 

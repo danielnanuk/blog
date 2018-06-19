@@ -9,8 +9,8 @@ tags:
   HashMap是一个散列表, 它存储的内容是键值对(key-value).
   HashMap继承于AbstractMap, 实现Map、Cloneable、Serializable接口:
   ![HashMap](/images/HashMap.png  "HashMap")
-# 构造器 
-  HashMap提供了4个构造器:
+# 构造器
+HashMap提供了4个构造器:
 ```java
     // 无参构造器, 加载因子默认为0.75, 初始容量默认为16
     public HashMap() {}
